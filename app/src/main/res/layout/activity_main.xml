@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    create vertical layout-->
+    <!--    create vertical layout-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,65 +14,95 @@
 
 
         <ImageView
-            android:layout_margin="40px"
             android:id="@+id/schoolLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="40px"
+            android:adjustViewBounds="true"
+            android:background="@color/white"
+            android:maxHeight="400px"
+            android:overScrollMode="always"
             android:src="@drawable/school_logo" />
 
 
         <EditText
-            android:layout_margin="40px"
             android:id="@+id/schoolName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="40px"
             android:hint="School Name"
             android:inputType="text" />
 
         <EditText
-            android:layout_margin="40px"
             android:id="@+id/principalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="40px"
             android:hint="Principal Name"
             android:inputType="text" />
 
         <EditText
-            android:layout_margin="40px"
             android:id="@+id/schoolPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="40px"
             android:hint="School Price"
             android:inputType="number" />
 
-<!--        create horisontal layout-->
+        <!--        create horisontal layout-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_margin="40px"
-            android:onClick="onSubmit"
-            android:id="@+id/submitBtn" />
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="40px"
+                android:onClick="onSubmit"
+                android:text="Submit" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="40px"
+                android:onClick="onSave"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/chLogoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="40px"
+                android:onClick="changeLogo"
+                android:text="Change logo" />
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Change logo"
-            android:layout_margin="40px"
-            android:id="@+id/chLogoBtn"
-            android:onClick="changeLogo"
-            />
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp" />
 
+        <Button
+            android:id="@+id/chContactBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40px"
+            android:onClick="contactUs"
+            android:text="Contact us" />
+
+
+
+
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

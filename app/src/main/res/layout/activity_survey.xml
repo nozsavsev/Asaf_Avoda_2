@@ -6,4 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".SurveyActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+<!--        An EditText field where the user should write a rating between 10 and 100 for the educational institution.
+A slider with values from 1-100, indicating how satisfied the user is with the institution's job placement.
+A switch button asking if the user is satisfied with the institution's prices.-->
+        <EditText
+            android:layout_margin="40px"
+            android:id="@+id/schoolRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="School Rating"
+            android:inputType="number" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="40px"
+
+        >
+
+        <TextView
+            android:layout_margin="40px"
+            android:id="@+id/schoolJobPlacementText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="How satisfied are you with school job placement"
+            android:inputType="number" />
+
+        <SeekBar
+            android:layout_margin="40px"
+            android:id="@+id/schoolJobPlacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="School Job Placement"
+            android:max="100"
+            android:min="10"
+            android:inputType="number" />
+    </LinearLayout>
+
+
+        <Switch
+            android:layout_margin="40px"
+            android:id="@+id/schoolPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Are you satisfied with school price"
+            android:inputType="number" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/submitSurvey"
+            android:onClick="submitSurvey"
+            android:layout_margin="40px"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
