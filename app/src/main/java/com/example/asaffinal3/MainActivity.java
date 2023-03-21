@@ -28,27 +28,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
 
-        //load shared preference
+        //load shared preferences into text boxes
         SharedPreferences sharedPreferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
         ((EditText) findViewById(R.id.schoolName)).setText(sharedPreferences.getString("schoolName", ""));
         ((EditText) findViewById(R.id.principalName)).setText(sharedPreferences.getString("principalName", ""));
         ((EditText) findViewById(R.id.schoolPrice)).setText(sharedPreferences.getString("schoolPrice", ""));
 
+        //get rating from survey activity if exists
         Intent intent = getIntent();
-
         if (intent.getStringExtra("rating") != null) {
             ((TextView) findViewById(R.id.rating)).setText("Rating is: " + intent.getStringExtra("rating"));
         }
 
-
     }
 
     public void contactUs(View view) {
+        //launches contact us activity
         Intent intent = new Intent(this, ContactUs.class);
         startActivity(intent);
     }
@@ -56,13 +55,11 @@ public class MainActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int MAKE_IMAGE_REQUEST = 2;
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ImageView logo = (ImageView) findViewById(R.id.schoolLogo);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri mImageUri = data.getData();
             logo.setImageURI(mImageUri);
         } else if (requestCode == MAKE_IMAGE_REQUEST && resultCode == RESULT_OK) {
@@ -104,14 +101,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSubmit(View view) {
 
-        //lanch survey activity
         Intent intent = new Intent(this, SurveyActivity.class);
         startActivity(intent);
-
     }
 
     public void changeLogo(View view) {
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Change logo");

@@ -65,19 +65,15 @@ public class SurveyActivity extends AppCompatActivity {
             return;
         }
 
-        int rating = (inRat + ((SeekBar) findViewById(R.id.schoolJobPlacement)).getProgress()) / 2;
-
+        int rating = inRat;
+        rating += ((SeekBar) findViewById(R.id.schoolJobPlacement)).getProgress();
         rating += ((Switch) findViewById(R.id.schoolPrice)).isChecked() ? 100 : 50;
-
-        System.out.println("submitSurvey: " + rating);
-
-
+        rating /= 3;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Save data");
         builder.setMessage("You want to save entered values?");
-
-        String finalRating =  Integer. toString(rating);
+        String finalRating = Integer.toString(rating);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
@@ -87,7 +83,8 @@ public class SurveyActivity extends AppCompatActivity {
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {}
+            public void onClick(DialogInterface dialog, int which) {
+            }
         });
 
         AlertDialog dialog = builder.create();
